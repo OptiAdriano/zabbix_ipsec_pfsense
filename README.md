@@ -38,6 +38,13 @@ UserParameter=ipsec.traffic[*],/usr/local/bin/sudo /usr/local/bin/check_ipsec_tr
 chmod +x /usr/local/bin/zabbix-ipsec.py
 chmod +x /usr/local/bin/check_ipsec.sh 
 chmod +x /usr/local/bin/check_ipsec_traffic.sh 
+```
+### Install on pfSense
+```console
+pkg install git
+cd /tmp
+git clone https://github.com/smejdil/zabbix_ipsec_pfsense
+./zabbix_ipsec_pfsense/scripts/install_on_pfsense.sh
 ``` 
 - Import the template ipsec_template-X.xml on zabbix and attach to pfsense hosts
 - Go get a beer
