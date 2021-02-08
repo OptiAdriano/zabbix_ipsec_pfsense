@@ -1,0 +1,171 @@
+{
+    "zabbix_export": {
+        "version": "5.2",
+        "date": "2021-02-15T14:17:21Z",
+        "groups": [
+            {
+                "name": "Templates/Applications"
+            }
+        ],
+        "templates": [
+            {
+                "template": "Template App pfSense IPSec tunnels",
+                "name": "Template App pfSense IPSec tunnels",
+                "groups": [
+                    {
+                        "name": "Templates/Applications"
+                    }
+                ],
+                "applications": [
+                    {
+                        "name": "IPSec"
+                    }
+                ],
+                "discovery_rules": [
+                    {
+                        "name": "IPSec Tunnel Discovery",
+                        "key": "ipsec.discover",
+                        "delay": "120",
+                        "item_prototypes": [
+                            {
+                                "name": "Bytes IN: {#DESCRIPTION} -  {#TUNNEL}",
+                                "key": "ipsec.traffic[{#TUNNEL},\"bytesIn\"]",
+                                "delay": "120",
+                                "history": "30d",
+                                "trends": "90d",
+                                "units": "bytes",
+                                "applications": [
+                                    {
+                                        "name": "IPSec"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Bytes OUT: {#DESCRIPTION} -  {#TUNNEL}",
+                                "key": "ipsec.traffic[{#TUNNEL},\"bytesOut\"]",
+                                "delay": "120",
+                                "history": "30d",
+                                "trends": "90d",
+                                "units": "bytes",
+                                "applications": [
+                                    {
+                                        "name": "IPSec"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "PKTS IN: {#DESCRIPTION} -  {#TUNNEL}",
+                                "key": "ipsec.traffic[{#TUNNEL},\"pktsIn\"]",
+                                "delay": "120",
+                                "history": "30d",
+                                "trends": "90d",
+                                "units": "pkts",
+                                "applications": [
+                                    {
+                                        "name": "IPSec"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "PKTS Out: {#DESCRIPTION} -  {#TUNNEL}",
+                                "key": "ipsec.traffic[{#TUNNEL},\"pktsOut\"]",
+                                "delay": "120",
+                                "history": "30d",
+                                "trends": "90d",
+                                "units": "pkts",
+                                "applications": [
+                                    {
+                                        "name": "IPSec"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Tunnel: {#DESCRIPTION} - {#TUNNEL}",
+                                "key": "ipsec.tunnel[{#TUNNEL}]",
+                                "delay": "120",
+                                "history": "30d",
+                                "trends": "90d",
+                                "applications": [
+                                    {
+                                        "name": "IPSec"
+                                    }
+                                ],
+                                "trigger_prototypes": [
+                                    {
+                                        "expression": "{last(0)}<>0",
+                                        "name": "Tunnel: {#DESCRIPTION} - {#TUNNEL}  down",
+                                        "priority": "HIGH",
+                                        "tags": [
+                                            {
+                                                "tag": "tunnel_name",
+                                                "value": "{#TUNNEL}"
+                                            },
+                                            {
+                                                "tag": "tunnel_state",
+                                                "value": "down"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "graph_prototypes": [
+                            {
+                                "name": "{#DESCRIPTION} - {#TUNNEL} Packages",
+                                "graph_items": [
+                                    {
+                                        "color": "2774A4",
+                                        "item": {
+                                            "host": "Template App pfSense IPSec tunnels",
+                                            "key": "ipsec.traffic[{#TUNNEL},\"pktsIn\"]"
+                                        }
+                                    },
+                                    {
+                                        "sortorder": "1",
+                                        "color": "A54F10",
+                                        "item": {
+                                            "host": "Template App pfSense IPSec tunnels",
+                                            "key": "ipsec.traffic[{#TUNNEL},\"pktsOut\"]"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "{#DESCRIPTION} - {#TUNNEL} Traffic",
+                                "graph_items": [
+                                    {
+                                        "color": "F63100",
+                                        "item": {
+                                            "host": "Template App pfSense IPSec tunnels",
+                                            "key": "ipsec.traffic[{#TUNNEL},\"bytesIn\"]"
+                                        }
+                                    },
+                                    {
+                                        "sortorder": "1",
+                                        "color": "2774A4",
+                                        "item": {
+                                            "host": "Template App pfSense IPSec tunnels",
+                                            "key": "ipsec.traffic[{#TUNNEL},\"bytesOut\"]"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "{#DESCRIPTION} status",
+                                "graph_items": [
+                                    {
+                                        "color": "1A7C11",
+                                        "item": {
+                                            "host": "Template App pfSense IPSec tunnels",
+                                            "key": "ipsec.tunnel[{#TUNNEL}]"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

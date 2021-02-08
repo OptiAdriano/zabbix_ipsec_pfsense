@@ -4,13 +4,13 @@
     <date>2021-02-08T08:18:17Z</date>
     <groups>
         <group>
-            <name>GWs</name>
+            <name>Templates/Applications</name>
         </group>
     </groups>
     <templates>
         <template>
-            <template>Pfsense IPSec tunnels</template>
-            <name>Pfsense IPSec tunnels</name>
+            <template>Template App pfSense IPSec tunnels</template>
+            <name>Template App pfSense IPSec tunnels</name>
             <description/>
             <groups>
                 <group>

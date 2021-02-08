@@ -1,16 +1,16 @@
 zabbix_export:
   version: '5.2'
-  date: '2021-02-15T13:50:22Z'
+  date: '2021-02-15T14:17:10Z'
   groups:
     -
-      name: GWs
+      name: Templates/Applications
   templates:
     -
-      template: 'Pfsense IPSec tunnels'
-      name: 'Pfsense IPSec tunnels'
+      template: 'Template App pfSense IPSec tunnels'
+      name: 'Template App pfSense IPSec tunnels'
       groups:
         -
-          name: GWs
+          name: Templates/Applications
       applications:
         -
           name: IPSec
@@ -88,13 +88,13 @@ zabbix_export:
                 -
                   color: 2774A4
                   item:
-                    host: 'Pfsense IPSec tunnels'
+                    host: 'Template App pfSense IPSec tunnels'
                     key: 'ipsec.traffic[{#TUNNEL},"pktsIn"]'
                 -
                   sortorder: '1'
                   color: A54F10
                   item:
-                    host: 'Pfsense IPSec tunnels'
+                    host: 'Template App pfSense IPSec tunnels'
                     key: 'ipsec.traffic[{#TUNNEL},"pktsOut"]'
             -
               name: '{#DESCRIPTION} - {#TUNNEL} Traffic'
@@ -102,13 +102,13 @@ zabbix_export:
                 -
                   color: F63100
                   item:
-                    host: 'Pfsense IPSec tunnels'
+                    host: 'Template App pfSense IPSec tunnels'
                     key: 'ipsec.traffic[{#TUNNEL},"bytesIn"]'
                 -
                   sortorder: '1'
                   color: 2774A4
                   item:
-                    host: 'Pfsense IPSec tunnels'
+                    host: 'Template App pfSense IPSec tunnels'
                     key: 'ipsec.traffic[{#TUNNEL},"bytesOut"]'
             -
               name: '{#DESCRIPTION} status'
@@ -116,5 +116,5 @@ zabbix_export:
                 -
                   color: 1A7C11
                   item:
-                    host: 'Pfsense IPSec tunnels'
+                    host: 'Template App pfSense IPSec tunnels'
                     key: 'ipsec.tunnel[{#TUNNEL}]'

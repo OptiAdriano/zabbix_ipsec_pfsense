@@ -1,17 +1,20 @@
 # Monitoring IPsec tunnels on pfSense using zabbix
 
 This project was forked from https://github.com/jpmenil/zabbix-templates. Thanks to @jpmenil by share
+This project was forked from https://github.com/alanwds/zabbix_ipsec_pfsense. Thanks to @alanwds by share
+This project was forked from https://github.com/fralvarezcalvo/zabbix_ipsec_pfsense. Thanks to @fralvarezcalvo by share
 
 This template is used for monitoring IPSEC tunnels on PFSense using zabbix.
 
 # Dependencies
 
+- Project is used for pfSense >= 2.4.5
 - Zabbix agent (you can install it from pfsense packages manager)
 - sudo (you can install it from pfsense packages manager)
 - Zabbix Server >= 4.0
 - check_ipsec.sh
 - check_ipsec_traffic.sh
-- zabbix-ipsec.py
+- zabbix-ipsec.py (use Python 3.7)
 - zabbix_sudoers
 
 # How it works
@@ -38,4 +41,3 @@ chmod +x /usr/local/bin/check_ipsec_traffic.sh
 ``` 
 - Import the template ipsec_template-X.xml on zabbix and attach to pfsense hosts
 - Go get a beer
-
