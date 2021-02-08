@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>5.0</version>
-    <date>2021-02-08T08:20:58Z</date>
+    <date>2021-02-08T08:41:31Z</date>
     <groups>
         <group>
-            <name>GWs</name>
+            <name>Templates/Applications</name>
         </group>
     </groups>
     <templates>
         <template>
-            <template>Pfsense IPSec tunnels</template>
-            <name>Pfsense IPSec tunnels</name>
+            <template>Template App pfSense IPSec tunnels</template>
+            <name>Template App pfSense IPSec tunnels</name>
             <groups>
                 <group>
-                    <name>GWs</name>
+                    <name>Templates/Applications</name>
                 </group>
             </groups>
             <applications>
@@ -116,7 +116,7 @@
                                 <graph_item>
                                     <color>2774A4</color>
                                     <item>
-                                        <host>Pfsense IPSec tunnels</host>
+                                        <host>Template App pfSense IPSec tunnels</host>
                                         <key>ipsec.traffic[{#TUNNEL},&quot;pktsIn&quot;]</key>
                                     </item>
                                 </graph_item>
@@ -124,7 +124,7 @@
                                     <sortorder>1</sortorder>
                                     <color>A54F10</color>
                                     <item>
-                                        <host>Pfsense IPSec tunnels</host>
+                                        <host>Template App pfSense IPSec tunnels</host>
                                         <key>ipsec.traffic[{#TUNNEL},&quot;pktsOut&quot;]</key>
                                     </item>
                                 </graph_item>
@@ -136,7 +136,7 @@
                                 <graph_item>
                                     <color>F63100</color>
                                     <item>
-                                        <host>Pfsense IPSec tunnels</host>
+                                        <host>Template App pfSense IPSec tunnels</host>
                                         <key>ipsec.traffic[{#TUNNEL},&quot;bytesIn&quot;]</key>
                                     </item>
                                 </graph_item>
@@ -144,7 +144,7 @@
                                     <sortorder>1</sortorder>
                                     <color>2774A4</color>
                                     <item>
-                                        <host>Pfsense IPSec tunnels</host>
+                                        <host>Template App pfSense IPSec tunnels</host>
                                         <key>ipsec.traffic[{#TUNNEL},&quot;bytesOut&quot;]</key>
                                     </item>
                                 </graph_item>
@@ -156,7 +156,7 @@
                                 <graph_item>
                                     <color>1A7C11</color>
                                     <item>
-                                        <host>Pfsense IPSec tunnels</host>
+                                        <host>Template App pfSense IPSec tunnels</host>
                                         <key>ipsec.tunnel[{#TUNNEL}]</key>
                                     </item>
                                 </graph_item>
