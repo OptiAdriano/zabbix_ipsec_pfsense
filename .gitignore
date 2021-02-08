@@ -1,4 +1,5 @@
 config.xml
+ipsec.conf
 zabbix-ipsec-parser.py
 zabbix_ipsec_pfsense.prj
 zabbix_ipsec_pfsense.malylntb.malyl.pui
