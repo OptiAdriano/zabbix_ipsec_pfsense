@@ -1,4 +1,4 @@
-#!/usr/local/bin/python2.7
+#!/usr/local/bin/python3.7
 
 import itertools
 import re
@@ -44,18 +44,18 @@ def findDescr(remoteid,ikeid):
 
 #Function to set correct format on ikeId. Recives conIDXXX, return ID
 def formatIkeId(ikeid):
-	
-	#Convert list  into a string
-	ikeid = ikeid[0]
+    
+    #Convert list  into a string
+    ikeid = ikeid[0]
 
-	#If ikeid has 8 or more positions, get the position 3 and 4
-	if len(ikeid) >= 8:
-		ikeid = ikeid[3] + ikeid[4]
-	else:
-		#Else, get only the position 3. That is because some ikeids are small
-		ikeid = ikeid[3]
-        #print "The correct ike id is ", ikeid
-        return ikeid
+    #If ikeid has 8 or more positions, get the position 3 and 4
+    if len(ikeid) >= 8:
+        ikeid = ikeid[3] + ikeid[4]
+    else:
+        #Else, get only the position 3. That is because some ikeids are small
+        ikeid = ikeid[3]
+    #print "The correct ike id is ", ikeid
+    return ikeid
 
 def parseConf():
     reg_conn = re.compile('^conn\s((?!%default).*)')
@@ -71,16 +71,16 @@ def parseConf():
                 left_tmp = [m.group(1) for l in conn_info for m in [reg_left.search(l)] if m]
                 right_tmp = [m.group(1) for l in conn_info for m in [reg_right.search(l)] if m]
                 rightsubnet_tmp = [m.group(1) for l in conn_info for m in [reg_rightsubnet.search(l)] if m]
-		if len(conn_tmp) > 0 :
-			if len(rightsubnet_tmp):
-				rightsubnet_tmp = rightsubnet_tmp[0].lstrip() #remore spaces
-				rightsubnet_tmp = rightsubnet_tmp.split("/") #Split string to get only ip, without subnet mask)
-				descr = findDescr(rightsubnet_tmp[0],formatIkeId(conn_tmp))
-                        else:
-				rightsubnet_tmp.append("Not found")
-		else:
-			descr = "Not found"
-                if conn_tmp and left_tmp and right_tmp:
+                if len(conn_tmp) > 0 :
+                    if len(rightsubnet_tmp):
+                            rightsubnet_tmp = rightsubnet_tmp[0].lstrip() #remore spaces
+                            rightsubnet_tmp = rightsubnet_tmp.split("/") #Split string to get only ip, without subnet mask)
+                            descr = findDescr(rightsubnet_tmp[0],formatIkeId(conn_tmp))
+                    else:
+                            rightsubnet_tmp.append("Not found")
+            else:
+                    descr = "Not found"
+            if conn_tmp and left_tmp and right_tmp:
                     data[conn_tmp[0]] = [left_tmp[0], right_tmp[0], descr]
         return data
 
