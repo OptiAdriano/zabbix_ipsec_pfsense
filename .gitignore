@@ -1,5 +1,8 @@
-config.xml
-ipsec.conf
+config*.xml
+ipsec*.conf
+swanctl*.conf
 zabbix-ipsec-parser.py
+zabbix-ipsec.py
+zabbix-ipsec*.py
 zabbix_ipsec_pfsense.prj
 zabbix_ipsec_pfsense.malylntb.malyl.pui

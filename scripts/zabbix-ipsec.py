@@ -5,7 +5,7 @@ import re
 import sys
 import xml.etree.cElementTree as ET
 
-IPSEC_CONF = '/usr/local/etc/ipsec.conf'
+IPSEC_CONF = '/var/etc/ipsec/swanctl.conf'
 PFSENSE_CONF = '/conf/config.xml'
 rtt_time_warn = 200
 rtt_time_error = 300
