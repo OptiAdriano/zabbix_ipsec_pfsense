@@ -58,28 +58,35 @@ def formatIkeId(ikeid):
     return ikeid
 
 def parseConf():
-    reg_conn = re.compile('^conn\s((?!%default).*)')
-    reg_left = re.compile('.*leftid =(.*).*')
-    reg_right = re.compile('.*rightid =(.*).*')
-    reg_rightsubnet = re.compile('.*rightsubnet =(.*).*')
+    reg_conn = re.compile('^\s*con[0-9]{4,6}')
+    reg_left = re.compile('.*local_addrs =(.*).*')
+    reg_right = re.compile('.*remote_addrs =(.*).*')
+    reg_rightsubnet = re.compile('.*remote_ts =(.*).*')
     data = {}
     with open(IPSEC_CONF, 'r') as f:
-        for key, group in itertools.groupby(f, lambda line: line.startswith('\n')):
-            if not key:
-                conn_info = list(group)
-                conn_tmp = [m.group(1) for l in conn_info for m in [reg_conn.search(l)] if m]
-                left_tmp = [m.group(1) for l in conn_info for m in [reg_left.search(l)] if m]
-                right_tmp = [m.group(1) for l in conn_info for m in [reg_right.search(l)] if m]
-                rightsubnet_tmp = [m.group(1) for l in conn_info for m in [reg_rightsubnet.search(l)] if m]
-                if len(conn_tmp) > 0 :
-                    if len(rightsubnet_tmp):
-                            rightsubnet_tmp = rightsubnet_tmp[0].lstrip() #remore spaces
-                            rightsubnet_tmp = rightsubnet_tmp.split("/") #Split string to get only ip, without subnet mask)
-                            descr = findDescr(rightsubnet_tmp[0],formatIkeId(conn_tmp))
-                    else:
-                            rightsubnet_tmp.append("Not found")
-            else:
-                    descr = "Not found"
+        soubor = f.read()
+        groups = re.findall('(^\s*con[0-9]+.*?)(?=^\s*esp_proposals|\Z)', soubor, flags=re.DOTALL|re.MULTILINE)
+        for g in groups:
+            conn_tmp = list()
+            m = re.search(reg_conn, g)
+            m = m.group(0)
+            m = m.lstrip('\t')
+            m = m.replace('\n\t','')
+            if m:
+                conn_tmp.append(m)
+            left_tmp = list()
+            m1 = re.search(reg_left, g)
+            m1 = m1.group(0)
+            m1 = m1.strip('\t\tlocal_addrs =')
+            if m1:
+                left_tmp.append(m1)
+            right_tmp = list()
+            m2 = re.search(reg_right, g)
+            m2 = m2.group(0)
+            m2 = m2.strip('\t\tremote_addrs =')
+            if m2:
+                right_tmp.append(m2)
+            descr = "Not found"
             if conn_tmp and left_tmp and right_tmp:
                     data[conn_tmp[0]] = [left_tmp[0], right_tmp[0], descr]
         return data
