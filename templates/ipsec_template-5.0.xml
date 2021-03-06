@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>5.0</version>
-    <date>2021-02-08T08:41:31Z</date>
+    <date>2021-03-06T11:25:57Z</date>
     <groups>
         <group>
             <name>Templates/Applications</name>
@@ -131,6 +131,19 @@
                             </graph_items>
                         </graph_prototype>
                         <graph_prototype>
+                            <name>{#DESCRIPTION} - {#TUNNEL} Status</name>
+                            <graph_items>
+                                <graph_item>
+                                    <sortorder>1</sortorder>
+                                    <color>1A7C11</color>
+                                    <item>
+                                        <host>Template App pfSense IPSec tunnels</host>
+                                        <key>ipsec.tunnel[{#TUNNEL}]</key>
+                                    </item>
+                                </graph_item>
+                            </graph_items>
+                        </graph_prototype>
+                        <graph_prototype>
                             <name>{#DESCRIPTION} - {#TUNNEL} Traffic</name>
                             <graph_items>
                                 <graph_item>
@@ -146,18 +159,6 @@
                                     <item>
                                         <host>Template App pfSense IPSec tunnels</host>
                                         <key>ipsec.traffic[{#TUNNEL},&quot;bytesOut&quot;]</key>
-                                    </item>
-                                </graph_item>
-                            </graph_items>
-                        </graph_prototype>
-                        <graph_prototype>
-                            <name>{#DESCRIPTION} status</name>
-                            <graph_items>
-                                <graph_item>
-                                    <color>1A7C11</color>
-                                    <item>
-                                        <host>Template App pfSense IPSec tunnels</host>
-                                        <key>ipsec.tunnel[{#TUNNEL}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
