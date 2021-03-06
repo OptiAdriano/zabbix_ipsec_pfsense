@@ -8,7 +8,7 @@ This template is used for monitoring IPSEC tunnels on PFSense using zabbix.
 
 # Dependencies
 
-- Project is used for pfSense >= 2.4.5
+- Project is used for pfSense >= 2.5.0 (swanctl.conf)
 - Zabbix agent (you can install it from pfsense packages manager)
 - sudo (you can install it from pfsense packages manager)
 - Zabbix Server >= 4.0
@@ -40,11 +40,33 @@ chmod +x /usr/local/bin/check_ipsec.sh
 chmod +x /usr/local/bin/check_ipsec_traffic.sh 
 ```
 ### Install on pfSense
+
+Manual scripts instalation.
+
 ```console
 pkg install git
 cd /tmp
 git clone https://github.com/smejdil/zabbix_ipsec_pfsense
 ./zabbix_ipsec_pfsense/scripts/install_on_pfsense.sh
-``` 
+```
+
+### Manual test from console pfSense
+
+Test JSON output for LLD IPSec
+
+```console
+[root@pfsense /tmp]# /usr/local/bin/python3.7 /usr/local/bin/zabbix-ipsec.py
+{
+    "data":[
+        { "{#TUNNEL}":"con1000","{#TARGETIP}":"77.236.222.116","{#SOURCEIP}":"77.48.121.150","{#DESCRIPTION}":"Not found" },
+        { "{#TUNNEL}":"con3000","{#TARGETIP}":"84.246.163.16","{#SOURCEIP}":"77.48.121.150","{#DESCRIPTION}":"Not found" },
+        { "{#TUNNEL}":"con4000","{#TARGETIP}":"149.62.148.42","{#SOURCEIP}":"77.48.121.150","{#DESCRIPTION}":"Not found" }
+    ]
+}
+```
 - Import the template ipsec_template-X.xml on zabbix and attach to pfsense hosts
-- Go get a beer
+- Go get a beer :-)
+
+### ToDo
+
+- Fix IPSec Description - "Not found"
