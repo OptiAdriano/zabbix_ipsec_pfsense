@@ -1,7 +1,7 @@
 {
     "zabbix_export": {
         "version": "5.2",
-        "date": "2021-02-15T14:17:21Z",
+        "date": "2021-03-07T10:59:48Z",
         "groups": [
             {
                 "name": "Templates/Applications"
@@ -131,6 +131,19 @@
                                 ]
                             },
                             {
+                                "name": "{#DESCRIPTION} - {#TUNNEL} Status",
+                                "graph_items": [
+                                    {
+                                        "sortorder": "1",
+                                        "color": "1A7C11",
+                                        "item": {
+                                            "host": "Template App pfSense IPSec tunnels",
+                                            "key": "ipsec.tunnel[{#TUNNEL}]"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
                                 "name": "{#DESCRIPTION} - {#TUNNEL} Traffic",
                                 "graph_items": [
                                     {
@@ -146,18 +159,6 @@
                                         "item": {
                                             "host": "Template App pfSense IPSec tunnels",
                                             "key": "ipsec.traffic[{#TUNNEL},\"bytesOut\"]"
-                                        }
-                                    }
-                                ]
-                            },
-                            {
-                                "name": "{#DESCRIPTION} status",
-                                "graph_items": [
-                                    {
-                                        "color": "1A7C11",
-                                        "item": {
-                                            "host": "Template App pfSense IPSec tunnels",
-                                            "key": "ipsec.tunnel[{#TUNNEL}]"
                                         }
                                     }
                                 ]
