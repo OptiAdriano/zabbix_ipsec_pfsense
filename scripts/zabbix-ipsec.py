@@ -1,4 +1,4 @@
-#!/usr/local/bin/python3.7
+#!/usr/local/bin/python3.8
 
 import itertools
 import re
@@ -62,6 +62,7 @@ def parseConf():
     reg_left = re.compile('.*local_addrs =(.*).*')
     reg_right = re.compile('.*remote_addrs =(.*).*')
     reg_rightsubnet = re.compile('.*remote_ts =(.*).*')
+    reg_description = re.compile('.*#.P1.\(.*\): (.*)')
     data = {}
     with open(IPSEC_CONF, 'r') as f:
         soubor = f.read()
@@ -86,9 +87,14 @@ def parseConf():
             m2 = m2.strip('\t\tremote_addrs =')
             if m2:
                 right_tmp.append(m2)
-            descr = "Not found"
+            desc_tmp = list()
+            m3 = re.search(reg_description, g)
+            m3 = m3.group(1)
+            if m3:
+                desc_tmp.append(m3)
+
             if conn_tmp and left_tmp and right_tmp:
-                    data[conn_tmp[0]] = [left_tmp[0], right_tmp[0], descr]
+                    data[conn_tmp[0]] = [left_tmp[0], right_tmp[0], desc_tmp[0]]
         return data
 
 def getTemplate():
