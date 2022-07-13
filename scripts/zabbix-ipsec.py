@@ -58,7 +58,7 @@ def formatIkeId(ikeid):
     return ikeid
 
 def parseConf():
-    reg_conn = re.compile('^\s*con[0-9]{4,6}')
+    reg_conn = re.compile('^\s*con[0-9]{1,6}')
     reg_left = re.compile('.*local_addrs =(.*).*')
     reg_right = re.compile('.*remote_addrs =(.*).*')
     reg_rightsubnet = re.compile('.*remote_ts =(.*).*')
