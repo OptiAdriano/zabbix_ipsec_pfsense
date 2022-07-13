@@ -2,7 +2,7 @@
 
 This project was forked from https://github.com/jpmenil/zabbix-templates, https://github.com/alanwds/zabbix_ipsec_pfsense and https://github.com/fralvarezcalvo/zabbix_ipsec_pfsense.
 
-Thanks to @alanwds, @jpmenil and @fralvarezcalvo by share
+Thanks to @alanwds, @jpmenil @smejdil and @fralvarezcalvo by share
 
 This template is used for monitoring IPSEC tunnels on PFSense using zabbix.
 
