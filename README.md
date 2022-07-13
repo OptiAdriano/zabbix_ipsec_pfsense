@@ -58,9 +58,9 @@ Test JSON output for LLD IPSec
 [root@pfsense /tmp]# /usr/local/bin/python3.8 /usr/local/bin/zabbix-ipsec.py
 {
     "data":[
-        { "{#TUNNEL}":"con1000","{#TARGETIP}":"77.236.222.116","{#SOURCEIP}":"77.48.121.150","{#DESCRIPTION}":"Tunnel 1" },
-        { "{#TUNNEL}":"con3000","{#TARGETIP}":"84.246.163.16","{#SOURCEIP}":"77.48.121.150","{#DESCRIPTION}":"Tunnel 2" },
-        { "{#TUNNEL}":"con4000","{#TARGETIP}":"149.62.148.42","{#SOURCEIP}":"77.48.121.150","{#DESCRIPTION}":"Tunnel 3" }
+        { "{#TUNNEL}":"con1","{#TARGETIP}":"77.236.222.116","{#SOURCEIP}":"77.48.121.150","{#DESCRIPTION}":"Tunnel 1" },
+        { "{#TUNNEL}":"con3","{#TARGETIP}":"84.246.163.16","{#SOURCEIP}":"77.48.121.150","{#DESCRIPTION}":"Tunnel 2" },
+        { "{#TUNNEL}":"con4","{#TARGETIP}":"149.62.148.42","{#SOURCEIP}":"77.48.121.150","{#DESCRIPTION}":"Tunnel 3" }
     ]
 }
 ```
