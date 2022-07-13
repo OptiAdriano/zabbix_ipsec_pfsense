@@ -26,7 +26,7 @@ The template queries zabbix-ipsec.py for tunnels ids (conXXXX). After that, the 
 - You have to put check_ipsec.sh, check_ipsec_traffic.sh and zabbix-ipsec.py on pfsense filesystem. (/usr/local/bin/ in this example)
 - Install sudo pakage at pfsense packages manager
 - Copy file zabbix_sudoers under /usr/local/etc/sudoers.d
-- Enabled Custom Configuration on Advanced Settins at System -> sudo
+- Enabled Custom Configuration on Advanced Settings at System -> sudo (at start or at end)
 - Create the follow user parameters at zabbix-agent config page on pfsense (Service -> Zabbix-agent -> Advanced Options)
 ```
 UserParameter=ipsec.discover,/usr/local/bin/python3.8 /usr/local/bin/zabbix-ipsec.py
