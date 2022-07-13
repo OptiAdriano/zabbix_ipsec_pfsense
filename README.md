@@ -11,7 +11,7 @@ This template is used for monitoring IPSEC tunnels on PFSense using zabbix.
 - Project is used for pfSense >= 2.6.0 (swanctl.conf)
 - Zabbix agent (you can install it from pfsense packages manager)
 - sudo (you can install it from pfsense packages manager)
-- Zabbix Server >= 4.0
+- Zabbix Server >= 6.0
 - check_ipsec.sh
 - check_ipsec_traffic.sh
 - zabbix-ipsec.py (use Python 3.8)
@@ -46,7 +46,7 @@ Manual scripts instalation.
 ```console
 pkg install git
 cd /tmp
-git clone https://github.com/smejdil/zabbix_ipsec_pfsense
+git clone https://github.com/OptiAdriano/zabbix_ipsec_pfsense
 ./zabbix_ipsec_pfsense/scripts/install_on_pfsense.sh
 ```
 
@@ -58,9 +58,9 @@ Test JSON output for LLD IPSec
 [root@pfsense /tmp]# /usr/local/bin/python3.7 /usr/local/bin/zabbix-ipsec.py
 {
     "data":[
-        { "{#TUNNEL}":"con1000","{#TARGETIP}":"77.236.222.116","{#SOURCEIP}":"77.48.121.150","{#DESCRIPTION}":"Not found" },
-        { "{#TUNNEL}":"con3000","{#TARGETIP}":"84.246.163.16","{#SOURCEIP}":"77.48.121.150","{#DESCRIPTION}":"Not found" },
-        { "{#TUNNEL}":"con4000","{#TARGETIP}":"149.62.148.42","{#SOURCEIP}":"77.48.121.150","{#DESCRIPTION}":"Not found" }
+        { "{#TUNNEL}":"con1000","{#TARGETIP}":"77.236.222.116","{#SOURCEIP}":"77.48.121.150","{#DESCRIPTION}":"Tunnel 1" },
+        { "{#TUNNEL}":"con3000","{#TARGETIP}":"84.246.163.16","{#SOURCEIP}":"77.48.121.150","{#DESCRIPTION}":"Tunnel 2" },
+        { "{#TUNNEL}":"con4000","{#TARGETIP}":"149.62.148.42","{#SOURCEIP}":"77.48.121.150","{#DESCRIPTION}":"Tunnel 3" }
     ]
 }
 ```
