@@ -55,7 +55,7 @@ git clone https://github.com/OptiAdriano/zabbix_ipsec_pfsense
 Test JSON output for LLD IPSec
 
 ```console
-[root@pfsense /tmp]# /usr/local/bin/python3.7 /usr/local/bin/zabbix-ipsec.py
+[root@pfsense /tmp]# /usr/local/bin/python3.8 /usr/local/bin/zabbix-ipsec.py
 {
     "data":[
         { "{#TUNNEL}":"con1000","{#TARGETIP}":"77.236.222.116","{#SOURCEIP}":"77.48.121.150","{#DESCRIPTION}":"Tunnel 1" },
