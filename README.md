@@ -8,13 +8,13 @@ This template is used for monitoring IPSEC tunnels on PFSense using zabbix.
 
 # Dependencies
 
-- Project is used for pfSense >= 2.5.0 (swanctl.conf)
+- Project is used for pfSense >= 2.6.0 (swanctl.conf)
 - Zabbix agent (you can install it from pfsense packages manager)
 - sudo (you can install it from pfsense packages manager)
 - Zabbix Server >= 4.0
 - check_ipsec.sh
 - check_ipsec_traffic.sh
-- zabbix-ipsec.py (use Python 3.7)
+- zabbix-ipsec.py (use Python 3.8)
 - zabbix_sudoers
 
 # How it works
@@ -69,4 +69,4 @@ Test JSON output for LLD IPSec
 
 ### ToDo
 
-- Fix IPSec Description - "Not found"
+- Improve compatibility with tunnels created in older version of pfSense, and upgraded later.
