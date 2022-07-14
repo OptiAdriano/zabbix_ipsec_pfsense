@@ -30,6 +30,8 @@ con1 {
 	children {
 		con1 { ... 
 		}
+		con1 { ... 
+		}
 	}
 }
 ```
@@ -39,6 +41,8 @@ con1 {
 	...
 	children {
 		con1_1 { ... 
+		}
+		con1_2 { ... 
 		}
 	}
 }
