@@ -26,21 +26,21 @@ The template queries zabbix-ipsec.py for tunnels ids (conXXXX). After that, the 
 First, there are two "flavors" of /var/etc/ipsec/swanctl.conf and you must identify your case. In type "A" the structure is:
 ```
 con1 {
-     ...
-     children {
-         con1 { ... 
-		 }
-     }
+	...
+	children {
+		con1 { ... 
+		}
+	}
 }
 ```
 and on type "B" the structure is:
 ```
 con1 {
-     ...
-     children {
-	     con1_1 { ... 
-		 }
-     }
+	...
+	children {
+		con1_1 { ... 
+		}
+	}
 }
 ```
 Until is generated a better code, there's two versions of zabbix-ipsec.py. Pick your choice, whenever your case is:
