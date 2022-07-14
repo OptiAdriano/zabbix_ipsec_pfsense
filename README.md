@@ -28,8 +28,8 @@ First, there are two "flavors" of /var/etc/ipsec/swanctl.conf and you must ident
 con1 {
      ...
      children {
-         con1 { ... }
-	     con1 { ... }
+         con1 { ... 
+		 }
      }
 }
 ```
@@ -38,8 +38,8 @@ and on type "B" the structure is:
 con1 {
      ...
      children {
-	     con1_1 { ... }
-		 con1_2 { ... }
+	     con1_1 { ... 
+		 }
      }
 }
 ```
