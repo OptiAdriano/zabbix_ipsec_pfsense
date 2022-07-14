@@ -23,10 +23,38 @@ The template queries zabbix-ipsec.py for tunnels ids (conXXXX). After that, the 
 
 ### Installation
 
+First, there are two "flavors" of /var/etc/ipsec/swanctl.conf and you must identify your case. In type "A" the structure is:
+```
+con1 {
+     ...
+	 children {
+	         con1 { ... 
+			 }
+			 con1 { ...
+			 }
+	  }
+}
+```
+and on type "B" the structure is:
+```
+con1 {
+     ...
+     children {
+	         con1_1 { ...
+			 }
+			 con1_2 { ...
+			 }
+	 }
+}
+```
+Until is generated a better code, there's two versions of zabbix-ipsec.py. Pick your choice, whenever your case is:
+- For version "A" rename "zabbix-ipcheck-a.py" as "zabbix-ipcheck.py"
+- For version "B" rename "zabbix-ipcheck-b.py" as "zabbix-ipcheck.py" 
+
 - You have to put check_ipsec.sh, check_ipsec_traffic.sh and zabbix-ipsec.py on pfsense filesystem. (/usr/local/bin/ in this example)
 - Install sudo pakage at pfsense packages manager
 - Copy file zabbix_sudoers under /usr/local/etc/sudoers.d
-- Enabled Custom Configuration on Advanced Settings at System -> sudo (at start or at end)
+- Enable Custom Configuration on Sudo's Advanced Settings (at System -> sudo) at start or at end
 - Create the follow user parameters at zabbix-agent config page on pfsense (Service -> Zabbix-agent -> Advanced Options)
 ```
 UserParameter=ipsec.discover,/usr/local/bin/python3.8 /usr/local/bin/zabbix-ipsec.py
